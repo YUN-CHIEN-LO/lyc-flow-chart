@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LycFlowChart :data="flowData" :key-map="keyMap">
+    <LycFlowChart :data="flowData" :key-map="keyMap" showAdd>
       <!-- <template #node="{ node }">
         <h1>hello world</h1>
       </template> -->

@@ -2,8 +2,7 @@ import { isFunction } from "lodash";
 import { nodeType as TYPE } from "@/components/constants";
 import { getNode } from "@/components/private-methods";
 import { isEmptyValue } from "@/utils";
-
-
+import LycAddButton from "@/components/LycAddButton.vue"
 
 /**
  * 渲染插入節點
@@ -36,7 +35,7 @@ const renderAdd = (node, context) => {
             },
           })
         ) : (
-          "+"
+          <LycAddButton node={node} disabled={props.disabled} />
         )}
       </div>
     </div>
