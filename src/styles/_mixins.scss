@@ -1,0 +1,58 @@
+/** == flex ===
+ * 設定該class的flex相關屬性
+ * 參數皆為optional
+ * @param $fd : flex-direction (預設為 row)
+ * @param $jc : justify-content (預設為 center)
+ * @param $ai : align-item (預設為 center)
+ * @param $fw : flex-wrap (預設為 wrap)
+ */
+@mixin setFlex($fd: row, $jc: center, $ai: center, $fw: wrap) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: $fw;
+}
+
+/** == position ==
+ * 設定該class的position相關屬性
+ * 參數皆為 optional
+ * @param $p : position (relative|absolute|sticky|fixed)
+ * @param $t : top
+ * @param $r : right
+ * @param $b : bottom
+ * @param $l : left
+ */
+@mixin setPosition($p: relative, $t: auto, $r: auto, $b: auto, $l: auto) {
+  position: $p;
+
+  @if not($p==relative) {
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+  }
+}
+
+/**
+ * == box-shadow ==
+ * 兼容主要瀏覽器shadow語法
+ * @param $shadow : shadow 設定
+ */
+@mixin shadow($shadow...) {
+  @each $pre in -webkit-, -moz-, -ms-, -o- {
+    #{$pre + box-shadow}: $shadow;
+  }
+
+  #{box-shadow}: $shadow;
+}
+
+/**
+ * 漸變動畫
+ */
+ @mixin setTransition ($transition: all 0.3s ease-in-out) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
